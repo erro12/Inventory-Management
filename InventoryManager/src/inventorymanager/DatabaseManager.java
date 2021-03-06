@@ -207,5 +207,12 @@ public class DatabaseManager {
         int affectedRows = pstmt.executeUpdate();
         return affectedRows > 0;
     }
+
+    void DeleteItem(int selectedItemId) throws SQLException {
+        String query = "DELETE FROM `item` WHERE `iditem` = ?";
+        pstmt = conn.prepareStatement(query);
+        pstmt.setInt(1, selectedItemId);
+        pstmt.executeUpdate();
+    }
     
 }
